@@ -1,6 +1,16 @@
 FROM atlassian/bamboo-base-agent:latest
 
-RUN apt-get update && apt-get install -yf curl git software-properties-common
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" >> /etc/apt/sources.list
+
+RUN apt-get update && apt-get install -yf language-pack-ru curl git software-properties-common xvfb xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+
+ENV LANGUAGE ru_RU.UTF-8
+ENV LANG ru_RU.UTF-8
+ENV LC_ALL ru_RU.UTF-8
+RUN locale-gen ru_RU.UTF-8 && dpkg-reconfigure locales
+
 RUN curl -sL https://deb.nodesource.com/setup_8.x -o /tmp/nodesource_setup.sh \
 	&& bash /tmp/nodesource_setup.sh && apt-get install -yf nodejs
 #RUN apt-get install -yf default-jdk
