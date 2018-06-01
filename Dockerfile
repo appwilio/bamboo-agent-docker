@@ -4,7 +4,7 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-proposed main restricted 
 	&& echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list \
 	&& echo "deb http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get install -yf language-pack-ru curl git software-properties-common xvfb xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+RUN apt-get update && apt-get install -yf language-pack-ru curl git software-properties-common xvfb xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic zip
 
 ENV LANGUAGE ru_RU.UTF-8
 ENV LANG ru_RU.UTF-8
