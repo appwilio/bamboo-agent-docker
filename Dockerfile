@@ -4,7 +4,23 @@ RUN echo "deb http://archive.ubuntu.com/ubuntu/ trusty-proposed main restricted 
 	&& echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list \
 	&& echo "deb http://archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse" >> /etc/apt/sources.list
 
-RUN apt-get update && apt-get install -yf language-pack-ru curl git software-properties-common xvfb xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic zip
+RUN apt-get update && apt-get install -yf \
+	language-pack-ru \
+	curl \
+	git \
+	software-properties-common \
+	libgtk2.0-0 \
+	libgconf-2-4 \
+	libasound2 \
+	libxtst6 \
+	libxss1 \
+	libnss3 \
+	xvfb \
+	xfonts-100dpi \
+	xfonts-75dpi \
+	xfonts-scalable \
+	xfonts-cyrillic \
+	zip
 
 ENV LANGUAGE ru_RU.UTF-8
 ENV LANG ru_RU.UTF-8
